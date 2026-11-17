@@ -1,0 +1,24 @@
+% Template for fig_results.tex; @...@ fields are filled from model v0.7 by gen_fig.py.
+\documentclass[border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.92]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{pgfplots}
+\usepackage{sansmath}\sansmath
+\pgfplotsset{compat=1.17}
+\input{colors.tex}
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize\sffamily]
+\begin{axis}[name=a, width=11cm, height=6cm, ybar, bar width=16pt, ymin=-150, ymax=170,
+  xtick={0,1,2}, xticklabels={@NAMES@}, xticklabel style={align=center, font=\scriptsize\sffamily},
+  enlarge x limits=0.25, ylabel={Net present value before tax (US\$M)}, axis lines*=left,
+  legend style={draw=none, at={(0.98,0.98)}, anchor=north east, font=\scriptsize\sffamily},
+  nodes near coords, nodes near coords style={font=\tiny\sffamily, /pgf/number format/.cd, fixed, precision=0},
+  title={\textbf{Net present value of the three cases at 5,000 t/month}}, title style={font=\footnotesize\sffamily, color=ink},
+  extra y ticks={0}, extra y tick style={grid=major, grid style={draw=ink!60}}]
+\addplot[fill=oxide, draw=none] coordinates {@NPV@};
+\addplot[fill=muted!70, draw=none] coordinates {@NPV26@};
+\legend{Normal acid prices, 2026 crisis acid prices}
+\end{axis}
+\end{tikzpicture}
+\end{document}

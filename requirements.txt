@@ -1,0 +1,2 @@
+# Dependency used by the original team's v1.0 model generator and report chart script.
+openpyxl>=3.1,<4
